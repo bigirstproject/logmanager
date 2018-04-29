@@ -1,0 +1,7 @@
+1、http://localhost:8081/query?id=1
+
+2、http://localhost:8081/add?version=4.10.1&os=ios&feedback=登录异常&infoaddress=www.taobao.com&date=20180501
+
+3、http://localhost:8081/query?id=6&version=4.10.1&os=ios&feedback=登录异常&infoaddress=www.taobao.com&date=20180501
+
+4、http://localhost:8081/query?id=6&version=4.10.1&os=null&feedback=null&infoaddress=null&date=null
