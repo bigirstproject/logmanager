@@ -7,5 +7,5 @@
   3、安装mysql， 官网下载地址（https://www.mysql.com/downloads/）
   4、初始化项目(根目录)
    npm install
-   mpm install mysql（如果运行发现报找不到mssql）
+   mpm install mysql（如果运行发现报找不到mysql）
   5、npm start //启动服务器
