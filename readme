@@ -9,3 +9,4 @@
    npm install
    mpm install mysql（如果运行发现报找不到mysql）
   5、npm start //启动服务器
+  6、数据库脚步在db文件夹，导入数据库正常run
