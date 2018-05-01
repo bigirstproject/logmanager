@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>日志管理后台</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                $.get("/query",function(data,status){
+                    for(i =0;i<data.length;i++){
+                        $("#a").append( data[i].id+'<br>');
+                        $("#b").append( data[i].id +'<br>');
+                        $("#c").append( data[i].id +'<br>');
+                        $("#d").append( data[i].id +'<br>');
+                        $("#e").append( data[i].id +'<br>');
+                        $("#f").append( data[i].id +'<br>');
+                        $("#g").append( data[i].id +'<br>');
+//                        AddTableRow(data,i);
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script>
+    function AddTableRow(str,i) {
+        var table = document.getElementById("table");
+        var tr = table.insertRow();
+        var td = tr.insertCell(i);
+        td.innerHTML = str[item];
+    }
+    </script>
+</head>
+
+<body>
+<h2>日志平台</h2>
+
+<div class="form-group">
+    <label>手机号：</label>
+    <input id="url1" type="text" class="form-control" placeholder="输入手机号">
+    <label>系统型号:</label>
+    <input id="url2" type="text" class="form-control" placeholder="输入系统型号">
+    <label>手机型号：</label>
+    <input id="url3" type="text" class="form-control" placeholder="输入手机型号">
+    <button id="submit" type="submit" class="btn btn-primary pull-right">搜索</button>
+</div>
+
+<table class="table table-bordered">
+    <tr>
+        <th>手机号</th>
+        <th>系统型号</th>
+        <th>手机型号</th>
+        <th>版本</th>
+        <th>意见反馈</th>
+        <th >下载地址</th>
+        <th >时间</th>
+    </tr>
+    <td id="table">
+    </td>
+</table>
+<div class="form-group">
+    <label id="a">手机号</label>
+    <label id="b">系统型号</label>
+    <label id="c">手机型号</label>
+    <label id="d">版本</label>
+    <label id="e">意见反馈</label>
+    <label id="f">下载地址</label>
+    <label id="g">时间</label>
+</div>
+
+</body>
+</html>

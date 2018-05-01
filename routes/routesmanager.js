@@ -14,12 +14,16 @@ managerrouter.get('/', function(req, res) {
     require('./index')(req,res);
 });
 
+managerrouter.post('/users',function(req, res) {
+    require('./users')(req,res);
+});
+
 managerrouter.get('/users',function(req, res) {
     require('./users')(req,res);
 });
 
 managerrouter.get('/query',function(req, res) {
-    require('./query')(req,res);
+    require('./query1')(req,res);
 });
 
 managerrouter.get('/add',function(req, res) {
