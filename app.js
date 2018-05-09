@@ -16,7 +16,7 @@ var app = express();
 
 // view engine setup(模板开始)
 app.set('views', path.join(__dirname, 'views'));//设置视图根目录
-// app.set('view engine', 'jade');//设置视图格式（本人不太喜欢用jade，接下来会交大家使用html格式的文件）
+app.set('view engine', 'jade');//设置视图格式（本人不太喜欢用jade，接下来会交大家使用html格式的文件）
 
 // 载入中间件
 app.use(logger('dev'));

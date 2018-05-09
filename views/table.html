@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>日志管理后台</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <script src="/public/js/jquery-3.2.1.min.js"></script>
+
+    <script>
+        function copyText(id) {
+            document.getElementById(id).value = document.getElementById("field1").value;
+            alert('"+id+"');
+            console.log('fdsafds' + data[i].id);
+        }
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $.get("/query", function ( data, status) {
+                    $("#table tr:gt(0)").remove();
+                    for (i = 0; i < data.length; i++) {
+                        var newRow = "<tr style=\'width: 160px; \' ><td>" + [data[i].id] + "</td><td >" + data[i].version + "</td><td >" + data[i].os + "" +
+                            "</td><td >" + data[i].os + "</td><td>" + data[i].feedback + "</td><td>"+
+                        "<button id = 'download" + data[i].id + "'   class='btn  btn-primary' style='margin-right:15px;'>下载</button></td>" +
+                            "<td >" + data[i].date + "</td></tr>";
+                        $("#table tr:last").after(newRow);
+                        var id = document.getElementById('download'+data[i].id );
+                        console.log(data[i].id + id);
+                        $(id).click(function () {
+                            alert('"+id+"'+id);
+//                            console.log(data[i].infoaddress);
+                        });e
+                    }
+                });
+            });
+        });
+    </script>
+
+
+</head>
+
+<body>
+<h2>日志平台</h2>
+
+
+<div class="div1">
+    <label>手机号：</label>
+    <input id="url1" type="text" class="form-control" placeholder="输入手机号">
+    <label>系统型号:</label>
+    <input id="url2" type="text" class="form-control" placeholder="输入系统型号">
+    <label>手机型号：</label>
+    <input id="url3" type="text" class="form-control" placeholder="输入手机型号">
+    <button id="submit" type="submit" class="btn btn-primary pull-right">搜索</button>
+</div>
+
+<div class="div2">
+    <table id="table">
+        <tr>
+            <th style="width: 160px;">手机号</th>
+            <th style="width: 160px;">系统型号</th>
+            <th style="width: 160px;">手机型号</th>
+            <th style="width: 160px;">版本</th>
+            <th style="width: 160px;">意见反馈</th>
+            <th style="width: 160px;">下载地址</th>
+            <th style="width: 160px;">时间</th>
+        </tr>
+    </table>
+</div>
+
+</body>
+
+</html>

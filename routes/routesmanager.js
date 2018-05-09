@@ -10,6 +10,11 @@ managerrouter.use(function timeLog(req, res, next) {
     next();
 });
 
+managerrouter.get('/public/*', function(req, res) {
+    require('./public')(req,res);
+});
+
+
 managerrouter.get('/', function(req, res) {
     require('./index')(req,res);
 });
@@ -18,8 +23,8 @@ managerrouter.post('/users',function(req, res) {
     require('./users')(req,res);
 });
 
-managerrouter.get('/users',function(req, res) {
-    require('./users')(req,res);
+managerrouter.get('/table',function(req, res) {
+    require('./table')(req,res);
 });
 
 managerrouter.get('/query',function(req, res) {
