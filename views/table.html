@@ -21,17 +21,16 @@
                 $.get("/query", function ( data, status) {
                     $("#table tr:gt(0)").remove();
                     for (i = 0; i < data.length; i++) {
-                        var newRow = "<tr style=\'width: 160px; \' ><td>" + [data[i].id] + "</td><td >" + data[i].version + "</td><td >" + data[i].os + "" +
+                        var newRow = "<tr ><td>" + [data[i].id] + "</td><td >" + data[i].version + "</td><td >" + data[i].os + "" +
                             "</td><td >" + data[i].os + "</td><td>" + data[i].feedback + "</td><td>"+
-                        "<button id = 'download" + data[i].id + "'   class='btn  btn-primary' style='margin-right:15px;'>下载</button></td>" +
+                        "<button id = 'download" + data[i].id + "'  attrs = '"+data[i].infoaddress +"' style='margin-right:15px;'>下载</button></td>" +
                             "<td >" + data[i].date + "</td></tr>";
                         $("#table tr:last").after(newRow);
-                        var id = document.getElementById('download'+data[i].id );
-                        console.log(data[i].id + id);
-                        $(id).click(function () {
-                            alert('"+id+"'+id);
-//                            console.log(data[i].infoaddress);
-                        });e
+                        var item = document.getElementById('download'+data[i].id );
+                        console.log(data[i].id + item);
+                        $(item).click(function () {
+                            alert('"+id+"'+item.getAttribute('attrs'));
+                        });
                     }
                 });
             });
