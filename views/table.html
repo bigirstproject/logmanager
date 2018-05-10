@@ -6,6 +6,7 @@
     <title>日志管理后台</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <script src="/public/js/jquery-3.2.1.min.js"></script>
+    <script src="/public/js/getdata.js"></script>
 
     <script>
         function copyText(id) {
@@ -16,25 +17,34 @@
     </script>
 
     <script>
-        $(document).ready(function () {
-            $("button").click(function () {
-                $.get("/query", function ( data, status) {
-                    $("#table tr:gt(0)").remove();
-                    for (i = 0; i < data.length; i++) {
-                        var newRow = "<tr ><td>" + [data[i].id] + "</td><td >" + data[i].version + "</td><td >" + data[i].os + "" +
-                            "</td><td >" + data[i].os + "</td><td>" + data[i].feedback + "</td><td>"+
-                        "<button id = 'download" + data[i].id + "'  attrs = '"+data[i].infoaddress +"' style='margin-right:15px;'>下载</button></td>" +
-                            "<td >" + data[i].date + "</td></tr>";
-                        $("#table tr:last").after(newRow);
-                        var item = document.getElementById('download'+data[i].id );
-                        console.log(data[i].id + item);
-                        $(item).click(function () {
-                            alert('"+id+"'+item.getAttribute('attrs'));
-                        });
-                    }
-                });
-            });
-        });
+//        $(document).ready(function () {
+//            $("button").click(function () {
+//                $.get("/query", function (data, status) {
+//                    $("#table tr:gt(0)").remove();
+//                    for (i = 0; i < data.length; i++) {
+//                        var newRow = "<tr ><td>" + [data[i].id] + "</td><td >" + data[i].phone + "</td><td >" + data[i].phonemodel + "</td><td >" + data[i].version + "" +
+//                            "</td><td >" + data[i].os + "</td><td>" + data[i].feedbook + "</td><td>" +
+//                            "<button id = 'download" + data[i].id + "'  attrs = '" + data[i].downurl + "' style='margin-right:15px;'>下载</button></td>" +
+//                            "<td >" + data[i].date + "</td></tr>";
+//                        $("#table tr:last").after(newRow);
+//                        document.getElementById('download' + data[i].id).onclick = function () {
+//                            var item = document.getElementById('download' + data[0].id);
+//                            console.log(item.getAttribute('attrs'));
+//                            alert('下载地址：' + item.getAttribute('attrs'));
+//                        }
+//                        var item = document.getElementById('download'+data[i].id );
+//                        console.log(data[i].id + item.getAttribute('attrs')+ '   '+item);
+//                        $('download'+data[i].id ).click(function () {
+//                            var item = document.getElementById('download'+data[i].id );
+//                            console.log(data[i].id + item.getAttribute('attrs'));
+//                            alert('下载地址：'+item.getAttribute('attrs'));
+////                            window.location.href = item.getAttribute('attrs');
+//                        });
+
+                    <!--}-->
+                <!--});-->
+            <!--});-->
+        <!--});-->
     </script>
 
 
@@ -57,6 +67,7 @@
 <div class="div2">
     <table id="table">
         <tr>
+            <th style="width: 160px;">ID</th>
             <th style="width: 160px;">手机号</th>
             <th style="width: 160px;">系统型号</th>
             <th style="width: 160px;">手机型号</th>
@@ -67,6 +78,28 @@
         </tr>
     </table>
 </div>
+
+<ul class="pagination pagination-sm pull-right">
+    <li>
+        <a id="countInfo">共0条记录</a>
+    </li>
+    <li>
+        <a id="pageInfo">每页0条</a>
+    </li>
+    <li onclick="Pre()">
+        <a>&laquo;</a>
+    </li>
+    <li>
+        <a id="page">0</a>
+    </li>
+    <li onclick="Next()">
+        <a>&raquo;</a>
+    </li>
+</ul>
+
+<script>
+    getdata();
+</script>
 
 </body>
 
